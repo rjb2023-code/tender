@@ -9,7 +9,7 @@ const USER_ROLE_KEY = 'tenderflow_user_role';
 
 interface UserContextType {
   user: User | null;
-  login: (role: UserRole) => void;
+  login: (email: string, password?: string) => boolean;
   logout: () => void;
   isLoading: boolean;
 }
@@ -41,13 +41,18 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
     }
   }, [pathname, router]);
 
-  const login = useCallback((role: UserRole) => {
+  const login = useCallback((email: string, password?: string): boolean => {
     try {
-      localStorage.setItem(USER_ROLE_KEY, role);
-      const currentUser = users.find(u => u.role === role) || null;
-      setUser(currentUser);
+      const currentUser = users.find(u => u.email === email && u.password === password);
+      if (currentUser) {
+        localStorage.setItem(USER_ROLE_KEY, currentUser.role);
+        setUser(currentUser);
+        return true;
+      }
+      return false;
     } catch (error) {
        console.error("Could not access localStorage:", error);
+       return false;
     }
   }, []);
 

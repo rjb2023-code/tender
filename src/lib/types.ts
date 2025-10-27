@@ -2,6 +2,8 @@ export type UserRole = 'admin' | 'manager' | 'vendor';
 
 export interface User {
   id: string;
+  username?: string;
+  password?: string; // In a real app, this should never be stored or sent to the client. This is for mock purposes only.
   name: string;
   email: string;
   avatar: string;

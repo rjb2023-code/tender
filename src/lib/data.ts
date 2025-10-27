@@ -4,12 +4,12 @@ import { PlaceHolderImages } from './placeholder-images';
 const getUserAvatar = (id: string) => PlaceHolderImages.find(img => img.id === id)?.imageUrl || '';
 
 export const users: User[] = [
-  { id: 'user-1', name: 'Admin User', email: 'admin@paratama.co.id', avatar: getUserAvatar('user-1'), role: 'admin' },
-  { id: 'user-2', name: 'Budi Hartono', email: 'budi.h@paratama.co.id', avatar: getUserAvatar('user-2'), role: 'manager' },
-  { id: 'user-3', name: 'CV Maju Jaya', email: 'contact@cvmajujaya.com', avatar: getUserAvatar('user-3'), role: 'vendor' },
-  { id: 'user-4', name: 'Siti Aminah', email: 'siti.a@paratama.co.id', avatar: getUserAvatar('user-4'), role: 'manager' },
-  { id: 'user-5', name: 'Rina Wijaya', email: 'rina.w@paratama.co.id', avatar: getUserAvatar('user-5'), role: 'manager' },
-  { id: 'user-6', name: 'Agus Salim', email: 'agus.s@paratama.co.id', avatar: getUserAvatar('user-6'), role: 'manager' },
+  { id: 'user-1', username: 'admincp', password: 'password', name: 'Admin User', email: 'admin@paratama.co.id', avatar: getUserAvatar('user-1'), role: 'admin' },
+  { id: 'user-2', username: 'budih', password: 'password', name: 'Budi Hartono', email: 'budi.h@paratama.co.id', avatar: getUserAvatar('user-2'), role: 'manager' },
+  { id: 'user-3', username: 'cvmajujaya', password: 'password', name: 'CV Maju Jaya', email: 'contact@cvmajujaya.com', avatar: getUserAvatar('user-3'), role: 'vendor' },
+  { id: 'user-4', username: 'sitia', password: 'password', name: 'Siti Aminah', email: 'siti.a@paratama.co.id', avatar: getUserAvatar('user-4'), role: 'manager' },
+  { id: 'user-5', username: 'rinaw', password: 'password', name: 'Rina Wijaya', email: 'rina.w@paratama.co.id', avatar: getUserAvatar('user-5'), role: 'manager' },
+  { id: 'user-6', username: 'aguss', password: 'password', name: 'Agus Salim', email: 'agus.s@paratama.co.id', avatar: getUserAvatar('user-6'), role: 'manager' },
 ];
 
 export const tenders: Tender[] = [
