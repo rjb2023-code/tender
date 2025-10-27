@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Bell, FilePlus, Home, LogOut, PanelLeft, Settings, User as UserIcon } from 'lucide-react';
+import { Bell, FilePlus, Home, LogOut, PanelLeft, Settings, User as UserIcon, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -29,6 +29,7 @@ import { notifications, users } from '@/lib/data';
 const navItems = [
   { href: '/dashboard', icon: Home, label: 'Dashboard', roles: ['admin', 'manager', 'vendor'] },
   { href: '/tenders/new', icon: FilePlus, label: 'Submit Tender', roles: ['admin', 'vendor'] },
+  { href: '/admin', icon: Shield, label: 'Admin', roles: ['admin'] },
   { href: '/settings', icon: Settings, label: 'Settings', roles: ['admin', 'manager', 'vendor'] },
 ];
 
@@ -76,6 +77,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
               ))}
             </nav>
           </div>
+          <div className="mt-auto p-4">
+            <Button size="sm" className="w-full" onClick={logout}>
+              <LogOut className="mr-2 h-4 w-4" />
+              Logout
+            </Button>
+          </div>
         </div>
       </div>
       <div className="flex flex-col">
@@ -107,6 +114,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                   </Link>
                 ))}
               </nav>
+               <div className="mt-auto">
+                <Button size="sm" className="w-full" onClick={logout}>
+                  <LogOut className="mr-2 h-4 w-4" />
+                  Logout
+                </Button>
+              </div>
             </SheetContent>
           </Sheet>
           <div className="w-full flex-1">
@@ -184,6 +197,7 @@ function UserDropdown({ user, logout }: { user: any; logout: () => void }) {
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild><Link href="/settings"><UserIcon className="mr-2 h-4 w-4" />Profile</Link></DropdownMenuItem>
         <DropdownMenuItem asChild><Link href="/settings"><Settings className="mr-2 h-4 w-4" />Settings</Link></DropdownMenuItem>
+        <DropdownMenuItem asChild><Link href="/admin"><Shield className="mr-2 h-4 w-4" />Admin</Link></DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={logout}>
           <LogOut className="mr-2 h-4 w-4" />

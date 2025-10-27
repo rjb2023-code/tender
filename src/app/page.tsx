@@ -1,5 +1,7 @@
 import { Logo } from '@/components/icons';
 import LoginClient from '@/app/login-client';
+import { Separator } from '@/components/ui/separator';
+import { Button } from '@/components/ui/button';
 
 export default function LoginPage() {
   return (
@@ -15,6 +17,15 @@ export default function LoginPage() {
           </p>
         </div>
         <LoginClient />
+        <Separator className="my-6" />
+        <div className="text-center">
+          <p className="text-sm text-muted-foreground">
+            Don't have an account?{' '}
+            <Button variant="link" className="p-0 h-auto">
+              Sign Up
+            </Button>
+          </p>
+        </div>
       </div>
     </div>
   );
